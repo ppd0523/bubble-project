@@ -1,0 +1,6 @@
+[submodule "django"]
+	path = django
+	url = https://github.com/ppd0523/bubble-be.git
+[submodule "html"]
+	path = html
+	url = https://github.com/ppd0523/bubble-fe.git

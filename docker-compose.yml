@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+        django:
+                container_name: django
+                image: emma0415/django:3.2.3
+                ports:
+                        - 52222:52222  # API service port
+                volumes:
+                        - ./django:/usr/src/django
+                depends_on:
+                        - postgresql
+                          # command:
+                          # - python manage.py runserver 0.0.0.0:52222 --settings=config.settings.prod
+                links:
+                        - postgresql:POSTGRESQL_ADDR # <service>:<alias>
+                entrypoint:
+                        - /bin/bash
+                tty: true
+                stdin_open: true
+
+        postgresql:
+                container_name: postgresql
+                image: postgres:13.3
+                ports:
+                        - 5432:5432
+                volumes:
+                        - ./postgres/data:/var/lib/postgresql/data
+                environment:
+                        - POSTGRES_PASSWORD=''
