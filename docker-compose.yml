@@ -6,21 +6,22 @@ services:
                 image: emma0415/django:3.2.3
                 environment:
                         - DJANGO_SETTINGS_MODULE=config.settings.prod
-                ports:
-                        - 52222:52222  # API service port
                 volumes:
-                        - ./django:/usr/src/django
+                        - ./django/:/usr/src/django/
+                        - ./html/static/:/usr/src/django/.static_root/
+                expose:
+                        - 52221
                 depends_on:
                         # - nginx
                         - postgresql
-                          # command:
-                          # - python manage.py runserver 0.0.0.0:52222 --settings=config.settings.prod
+                entrypoint:
+                # command:
+                          - gunicorn
+                          - config.wsgi:application
+                          - --bind
+                          - 0.0.0.0:52221
                 links:
                         - postgresql:POSTGRESQL_ADDR # <service>:<alias>
-                entrypoint:
-                        - /bin/bash
-                tty: true
-                stdin_open: true
 
         postgresql:
                 container_name: postgresql
@@ -30,13 +31,14 @@ services:
                 volumes:
                         - ./postgres/data:/var/lib/postgresql/data
                 environment:
-                        - POSTGRES_PASSWORD=''
+                        - POSTGRES_PASSWORD='1q2w3e4r'
 
         nginx:
                 container_name: nginx
                 image: nginx:1.21.0
                 ports:
                         - 80:80
+                        - 52222:52222
                 volumes:
                         - ./nginx/nginx.conf:/etc/nginx/nginx.conf
                         - ./nginx/conf.d/:/etc/nginx/conf.d/
