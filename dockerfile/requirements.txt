@@ -1,0 +1,8 @@
+django==3.2.3
+djangorestframework==3.12.4
+django-cors-headers==3.7.0
+django-rest-auth
+django-debug-toolbar==3.2.1
+utc-simple-log
+psycopg2-binary==2.8.6
+gunicorn==20.1.0

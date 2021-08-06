@@ -1,0 +1,10 @@
+FROM 
+MAINTAINER emma415g@gmail.com
+
+COPY 
+COPY
+RUN npm i
+
+WORKDIR 
+
+CMD ["/bin/bash"]
