@@ -1,6 +1,10 @@
 # 버블 파이낸스
 
-키움증권HTS. 매일 조건식 결과를 제공하는 웹 애플리케이션
+키움증권 HTS. 매일 조건식 결과를 브리핑하는 웹 애플리케이션.
+
+키움증권 영웅문에서 조건 검색식의 결과를 확인하려면 PC를 켜서 직접 확인해야한다. 스마트폰의 보급으로 HTS를 통해 주식 거래나 정보를 확인하는 경우는 거의 없다. 하지만 키움증권 MTS의 기능은 **조건 검색식의 종목을 확인하는 것**과 **그 종목을 일일이 눌러가며 확인**하는 것은 거의 상당히 힘든 일이다.
+
+PC를 켜고 HTS 접속한 뒤 조건 검색식들 돌려보며, 일일이 종목 동향을 파악할 필요 없이 **온라인 원페이지**에서 결과와 종목 동향을 보여주는 웹 애플리케이션이다.
 
 <br>
 
@@ -18,12 +22,13 @@
 ```bash
 $ tree -L 1
 .
-├── django                 # bubble-be
+├── README.md
+├── django              # bubble-be
 ├── docker-compose.yml
-├── frontend               # bubble-fe
+├── dockerfile
+├── frontend            # bubble-fe
 ├── nginx
-├── postgres               # not included. Data binding postgreSQL
-└── README.md
+└── postgres
 ```
 
 <br>
