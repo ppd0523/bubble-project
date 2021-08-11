@@ -23,3 +23,7 @@ frontend/.static_root/
 # nginx
 nginx/conf.d/*.crt
 nginx/conf.d/*.key
+
+
+#
+.idea/
